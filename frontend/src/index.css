@@ -1,32 +1,53 @@
-@import url('https://fonts.googleapis.com/css2?family=Young+Serif&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Young+Serif&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-*,*::after,::before{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+:root {
+  --mint: #9CFC97;
+  --black: #090302;
+  --orange: #ff6b00;
+  --white: #ffffff;
 }
 
-html{
-    
-    background: #1c1c1c;
-    font-family: "Young Serif";
+*,*::after,::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-
-body{
-    overflow-x: hidden;
+html {
+  background: var(--black);
+  font-family: "Young Serif";
 }
 
-
-
-::-webkit-scrollbar{
-    background-color: #1c1c1c;
-    width: 7px;
+body {
+  overflow-x: hidden;
 }
-::-webkit-scrollbar-thumb{
-    background-color: #ff6b00;
-    border-radius: 20px;
+
+::-webkit-scrollbar {
+  background-color: var(--black);
+  width: 7px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--orange);
+  border-radius: 20px;
+}
+
+.box {
+  width: 40px;
+  height: 100px;
+  background: transparent;
+  border: 2px solid var(--orange);
+  border-radius: 60px;
+  position: relative;
+}
+.circle {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--white);
+  inset: 0;
+  margin : auto;
 }

@@ -38,16 +38,26 @@ const FeatureItem: React.FC<{ title: string; description: string }> = ({
 };
 
 const FeaturePage = () => {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+  });
+
+  const slideUp = useSpring({
+    opacity: inView ? 1 : 0,
+    transform: inView ? 'translateY(0)' : 'translateY(50px)',
+    config: { duration: 800 },
+  });
+
   return (
     <div className="bg-bgdark flex flex-col h-full mt-8">
-      <div className="feature-content h-full w-[80%] mx-auto mt-10">
+      <div className="feature-content h-full w-[80%] mx-auto mt-20">
         <div className="text-center">
           <span className="text-textdark text-4xl text-center font-thin">
             Features We Offer
           </span>
           <hr className="border-t-2 border-orange-500 my-4" />
         </div>
-        <div className="feature-section w-[80%] mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 pt-[5%]">
+        <div className="feature-section w-[80%] mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 pt-[5%]">
           <FeatureItem
             title="Skill Profiles"
             description="Users can create profiles showcasing their skills, expertise, andthe services
@@ -95,34 +105,36 @@ const FeaturePage = () => {
           />
         </div>
         <br />
-        <div className="flex justify-center gap-4 pb-5">
-          <div className="flex items-center">
-            <span role="img" aria-label="Feature Icon">
-              🚀
-            </span>
-            <p className="text-textdark ml-2">Accelerated Growth</p>
+        <div className="bg-bgdark flex flex-col h-full mt-8">
+            <div ref={ref} className="flex justify-center gap-4 pb-5">
+              <animated.div style={slideUp} className="flex items-center">
+                <span role="img" aria-label="Feature Icon">
+                  🚀
+                </span>
+                <p className="text-textdark ml-2">Accelerated Growth</p>
+              </animated.div>
+              <animated.div style={slideUp} className="flex items-center">
+                <span role="img" aria-label="Feature Icon">
+                  🌐
+                </span>
+                <p className="text-textdark ml-2">Global Reach</p>
+              </animated.div>
+              <animated.div style={slideUp} className="flex items-center">
+                <span role="img" aria-label="Feature Icon">
+                  🎓
+                </span>
+                <p className="text-textdark ml-2">Educational Content</p>
+              </animated.div>
+              <animated.div style={slideUp} className="flex items-center">
+                <span role="img" aria-label="Feature Icon">
+                  💬
+                </span>
+                <p className="text-textdark ml-2">Interactive Discussions</p>
+              </animated.div>
+            </div>
           </div>
-          <div className="flex items-center">
-            <span role="img" aria-label="Feature Icon">
-              🌐
-            </span>
-            <p className="text-textdark ml-2">Global Reach</p>
-          </div>
-          <div className="flex items-center">
-            <span role="img" aria-label="Feature Icon">
-              🎓
-            </span>
-            <p className="text-textdark ml-2">Educational Content</p>
-          </div>
-          <div className="flex items-center">
-            <span role="img" aria-label="Feature Icon">
-              💬
-            </span>
-            <p className="text-textdark ml-2">Interactive Discussions</p>
-          </div>
-        </div>
+        </div>  
       </div>
-    </div>
   );
 };
 

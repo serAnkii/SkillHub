@@ -1,17 +1,15 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Young+Serif&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --mint: #9cfc97;
-    --black: #090302;
-    --orange: #ff6b00;
-    --white: #ffffff;
-    --lightblue: #60a5fa;
+    --lightblue: #3bcaff;
+    --lightpink: #df61f6;
+    --darkblue: #010112;
   }
-
+  
   *,
   *::after,
   ::before {
@@ -21,121 +19,18 @@
   }
 
   html {
-    background: var(--black);
-    font-family: "Poppins", sans-serif;
+    background: var(--darkblue);
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    color : whitesmoke;
   }
 
   body {
     overflow-x: hidden;
   }
-  
-  th, td {
-    padding: 0.75rem 0.625rem;
-    font-size: 14px;
-    text-align: left;
-    border-bottom: 1px solid #e2e8f0;
+   
+  button {
+    cursor: pointer;
   }
 
-  thead {
-    background-color: #f7fafc;
-  }
-
-  th {
-    font-weight: 600;
-  }
-
-  a {
-    color: var(--lightblue);
-    text-decoration: none;
-  }
-
-  a:hover {
-    text-decoration: underline;
-  }
-
-  .profile::after{
-    content: "";
-    display: block;
-    clear: both;
-  }
-  .profile-image {
-    float: left;
-    width: calc(33.333% - 10px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
 }
-
-.mainsearch {
-  grid-template-rows: 1fr 9fr;
-}
-
-.filters {
-  grid-template-columns: 7fr 3fr;
-}
-
-.filteritems {
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-}
-
-.filtercards {
-  margin: 13px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.filtercards::before {
-    content: "";
-    position: absolute;
-    top: -100%;
-    left: -100%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(45deg, #3b83f65f, transparent);
-    opacity: 0;
-    transform: rotate(45deg);
-    transition: opacity 0.3s ease-in-out;
-  }
-  .filtercards:hover::before,
-.filtercards:hover {
-  opacity: 1;
-}
-
-.filtercards:not(:hover) {
-    opacity: 0.7; 
-  }
-
-::-webkit-scrollbar{
-  background: transparent;
-    width: 2px;
-}
-::-webkit-scrollbar-thumb{
-    background-color: #3b82f6;
-    border-radius: 20px;
-}
-
-.box {
-    width: 40px;
-    height: 100px;
-    background: transparent;
-    border: 2px solid #3b82f6;
-    border-radius: 60px;
-    position: relative;
-  }
-  .circle {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background: var(--white);
-    inset: 0;
-    margin : auto;
-  }
-  
-  
